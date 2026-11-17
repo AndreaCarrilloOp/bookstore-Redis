@@ -1,12 +1,12 @@
 <template>
-  <section class="content narrow">
+  <section class="content narrow" :data-entity="entity">
     <h2>{{ heading }}</h2>
     <p v-if="error" class="error" role="alert">{{ error }}</p>
     <p v-if="message" class="notice" role="status">{{ message }}</p>
     <p v-if="loading">Cargando datos…</p>
     <form v-else @submit.prevent="submit">
       <div class="form-grid">
-        <div v-for="field in config.fields" :key="field.key">
+        <div v-for="field in config.fields" :key="field.key" :data-field="field.key">
           <label :for="field.key">{{ field.label }}</label>
           <input :id="field.key" v-model="form[field.key]" class="u-full-width" :type="field.type || 'text'"
             :required="Boolean(field.required)" :readonly="mode === 'show' || submitted" />
@@ -56,7 +56,7 @@ async function submit() {
       ? callFunction(`${props.entity}Insert`, { method: 'POST', body })
       : callFunction(`${props.entity}Update`, { method: 'PUT', id: route.params.id, body }));
     submitted.value = true;
-    message.value = 'Operación registrada en Redis. Regresa al listado y selecciona Procesar pendientes.';
+    message.value = 'Operación registrada en Redis.';
   } catch (err) { error.value = err.message; }
   finally { saving.value = false; }
 }

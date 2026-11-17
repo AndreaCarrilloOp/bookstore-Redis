@@ -11,5 +11,11 @@
       </nav>
     </header>
     <main class="container"><router-view /></main>
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <span>Redis Cloud &amp; MongoDB Atlas</span>
+        <span>Academic project · Andrea Carrillo Oporto</span>
+      </div>
+    </footer>
   </div>
 </template>

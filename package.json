@@ -4,10 +4,7 @@
   "private": true,
   "description": "Netlify Functions, Redis Cloud y MongoDB Atlas",
   "scripts": {
-    "dev": "netlify dev --dir public --port 8888 --no-open",
-    "seed": "node scripts/seed-mongodb.js",
-    "test": "node --test tests/*.test.js",
-    "check:redis": "node scripts/check-redis.js"
+    "dev": "netlify dev --dir public --port 8888 --no-open"
   },
   "dependencies": {
     "dotenv": "^16.6.1",
